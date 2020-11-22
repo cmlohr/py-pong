@@ -1,38 +1,28 @@
 from turtle import Screen, Turtle
+from paddle import Paddle
+from ball import Ball
+import time
 
 screen = Screen()
 screen.bgcolor("#191919")
 screen.setup(width=800, height=600)
 screen.title("PyPong")
+screen.tracer(0)
 
-paddle = Turtle("square")
-paddle.color("white")
-paddle.penup()
-paddle.shapesize(stretch_wid=5, stretch_len=1)
-paddle.goto(350, 0)
-
-
-def up():
-    new_y = 0
-    new_y += 200
-    paddle.goto(350, new_y)
-
-
-def down():
-    new_y = 0
-    new_y -= 200
-    paddle.goto(350, new_y)
-
+r_paddle = Paddle((350, 0))
+l_paddle = Paddle((-350, 0))
+ball = Ball()
 
 screen.listen()
-screen.onkey(key="Up", fun=up)
-screen.onkey(key="Down", fun=down)
+screen.onkey(r_paddle.move_up, "Up")
+screen.onkey(r_paddle.move_down, "Down")
+screen.onkey(l_paddle.move_up, "w")
+screen.onkey(l_paddle.move_down, "s")
 
-
-
-# game_on = True
-# while game_on:
-#     up()
-#     down()
+game_on = True
+while game_on:
+    time.sleep(0.1)
+    screen.update()
+    ball.move()
 
 screen.exitonclick()
