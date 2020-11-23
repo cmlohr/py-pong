@@ -1,1 +1,1 @@
-py-pong
+py-pong is based on the original Pong built using Python and Turtle.  Use 'w' and 's' for the left paddle and the 'up' and 'down' arrow keys for the right paddle.
