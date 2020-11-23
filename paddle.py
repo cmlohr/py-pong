@@ -1,6 +1,6 @@
 from turtle import Turtle, Screen
-screen = Screen()
 
+screen = Screen()
 
 
 class Paddle(Turtle):
